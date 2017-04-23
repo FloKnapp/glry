@@ -1,0 +1,15 @@
+<?php $this->parentTemplate('/layout.phtml'); ?>
+
+<?php $this->block('content'); ?>
+
+    <form action="/formrequest/userLogin" method="POST">
+
+        <input type="text" name="text/login">
+
+        <input type="password" name="text/password">
+
+        <button>Login</button>
+
+    </form>
+
+<?php $this->endBlock('content'); ?>

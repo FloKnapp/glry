@@ -1,0 +1,27 @@
+{
+    "name": "floknapp/glry",
+    "description": "A gallery manager with customizing aspect",
+    "type": "project",
+    "repositories" : [
+        {
+            "type": "path",
+            "url": "../faulancer"
+        }
+    ],
+    "require": {
+        "floknapp/faulancer": "dev-feature-auth-part2"
+    },
+    "license": "MIT License",
+    "authors": [
+        {
+            "name": "Flo Knapp",
+            "email": "office@florianknapp.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Glry\\": "./src/"
+        }
+    }
+}

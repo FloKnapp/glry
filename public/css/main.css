@@ -1,0 +1,225 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1em;
+}
+
+a {
+    color: inherit;
+}
+
+/* Admin section */
+
+.admin-header {
+    width: 100%;
+    min-height: 50px;
+    background: #303030;
+    overflow: hidden;
+}
+
+.admin-header .head {
+    color: #EEEEEE;
+    font-weight: normal;
+    padding: 10px;
+    margin: 0;
+    float: left;
+}
+
+.admin-header .head a {
+    text-decoration: none;
+    font-size: 2em;
+}
+
+.admin-content h2 {
+    margin: 0;
+    padding: 0;
+    color: #404040;
+}
+
+.admin-user-status {
+    padding: 25px 10px;
+    float: right;
+    color: #AAAAAA;
+    font-size: 0.8em;
+}
+
+.admin-user-status .login-name {
+    font-weight: bold;
+    color: #EEEEEE;
+}
+
+.admin-main-menu {
+    float: left;
+    width: 250px;
+    background: #303030;
+    height: calc(100% - 50px);
+}
+
+.admin-main-menu .nav-title {
+    font-size: 0.7em;
+    color: #AAAAAA;
+    padding: 5px;
+    display: block;
+}
+
+.admin-main-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.admin-main-menu li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    color: #808080;
+    transition: all 0.3s;
+    border-bottom: 1px solid #303030;
+    background: #252525;
+}
+
+.admin-main-menu ul li a {
+    display: block;
+    padding: 10px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+.admin-main-menu ul li:last-child {
+    border-bottom: none;
+}
+
+.admin-main-menu ul li a.selected,
+.admin-main-menu ul li:hover {
+    background: #202020;
+    color: #EEEEEE;
+}
+
+.admin-content {
+    float: left;
+    width: calc(100% - 250px);
+    overflow-y: scroll;
+}
+
+/* Icons */
+
+.icon {
+    padding-left: 1.8em !important;
+    position: relative;
+}
+
+.icon:before {
+    font-family: "FontAwesome", sans-serif;
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    color: inherit;
+    transition: all 0.3s;
+}
+
+li.icon:before {
+    top: 10px;
+}
+
+.icon.dashboard:before {
+    content: "\f0e4";
+}
+
+.icon.category:before {
+    content: "\f03a";
+}
+
+.icon.layout:before {
+    content : "\f108";
+}
+
+.icon.user:before {
+    content: "\f007";
+}
+
+.circle {
+    width: 80px;
+    height: 80px;
+    border: 10px solid #000;
+    clip-path: circle(60px at 35px 35px);
+}
+
+.stats .title {
+    font-size: 0.8em;
+    display: block;
+}
+
+.stats .count {
+    font-size: 2em;
+}
+
+/* Content alignment */
+
+hr {
+    margin: 20px 0;
+    padding: 0;
+    border-top: 1px solid #AAAAAA;
+    border-bottom: none;
+}
+
+hr.invisible {
+    margin: 20px 0;
+    padding: 0;
+    border: none;
+}
+
+.content {
+    padding: 20px;
+}
+
+.container {
+    display: table;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.container.border {
+    border: 1px solid #AAAAAA;
+}
+
+.cell.border {
+    border-right: 1px solid #AAAAAA;
+}
+
+.cell.border:last-child {
+    border-right: none;
+}
+
+.cell.space {
+    padding: 20px;
+}
+
+.width-10 { width: 10%; }
+.width-20 { width: 20%; }
+.width-25 { width: 25%; }
+.width-30 { width: 30%; }
+.width-33 { width: 33.33%; }
+.width-40 { width: 40%; }
+.width-50 { width: 50%; }
+.width-60 { width: 60%; }
+.width-66 { width: 66.66%; }
+.width-70 { width: 70%; }
+.width-80 { width: 80%; }
+.width-90 { width: 90%; }
+.width-100 { width: 100%; }
+
+.text-center { text-align: center; }
+
+
+
