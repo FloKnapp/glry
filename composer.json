@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "floknapp/faulancer": "dev-feature-api"
+        "floknapp/faulancer": "dev-feature-auth-part2"
     },
     "license": "MIT License",
     "authors": [

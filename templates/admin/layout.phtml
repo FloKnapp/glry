@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+    <title>Test</title>
+    <?= $this->assetList('css'); ?>
+</head>
+
+<body>
+
+<div class="admin-header">
+
+    <div class="head"><a href="<?= $this->route('admin_home'); ?>"<b>GLRY</b> Admin Panel</a></div>
+
+    <div class="admin-user-status">
+
+        <?php
+        $user = $this->user()->get();
+        ?>
+
+        Eingeloggt als <span class="login-name"><?= $user->login; ?></span> | <a href="/user/logout">Logout</a>
+
+    </div>
+
+</div>
+
+<div class="admin-main-menu">
+
+    <div class="nav-title">Allgemein</div>
+    <ul>
+        <li class="icon category"><?= $this->link('admin_category'); ?></li>
+        <li class="icon layout"><?= $this->link('admin_layout_settings'); ?></li>
+    </ul>
+
+    <div class="nav-title">Benutzer</div>
+    <ul>
+        <li class="icon user"><?= $this->link('admin_user_management'); ?></li>
+    </ul>
+
+</div>
+
+<div class="admin-content">
+    <?= $this->renderBlock('content'); ?>
+</div>
+
+
+
+
+<?php /* $this->assetList('js');*/ ?>
+</body>
+</html>
