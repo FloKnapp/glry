@@ -105,6 +105,29 @@ a {
     overflow-y: scroll;
 }
 
+.admin-section-title {
+    padding: 10px 0;
+}
+
+.admin-section-title h4 {
+    font-weight: normal;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clear-both {
+    clear: both;
+}
+
 /* Icons */
 
 .icon {
@@ -161,6 +184,19 @@ li.icon:before {
     content: "\f1f8";
 }
 
+.icon.add:before {
+    content: "\f067";
+}
+
+.icon.permission:before {
+    content: "\f084";
+    transform: rotate(90deg);
+}
+
+.icon.inline:hover:before {
+    color: steelblue;
+}
+
 .circle {
     width: 80px;
     height: 80px;
@@ -175,6 +211,33 @@ li.icon:before {
 
 .stats .count {
     font-size: 2em;
+}
+
+a.btn {
+    display: block;
+    padding: 5px 10px;
+    background: steelblue;
+    border: 1px solid #DDDDDD;
+    border-top: 1px solid #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.8em;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.5);
+    color: #DDDDDD;
+    transition: all 0.1s;
+}
+
+a.btn:hover {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    transform: translateY(2px);
+}
+
+.btn .icon {
+    padding-left: 16px !important;
+}
+
+.btn .icon:before {
+    left: 0 !important;
 }
 
 /* Content alignment */
@@ -209,6 +272,49 @@ hr.invisible {
     vertical-align: middle;
 }
 
+form .cell {
+    padding: 5px 0;
+}
+
+form label {
+    font-size: 0.8em;
+}
+
+form input {
+    padding: 3px 0;
+    min-width: 300px;
+    font-size: 0.8em;
+    color: #404040;
+}
+
+form select,
+form option {
+    padding: 2px 0;
+    min-width: 288px;
+    font-size: 0.8em;
+    color: #404040;
+}
+
+form button {
+    display: block;
+    padding: 5px 15px;
+    background: darkseagreen;
+    border: 1px solid #DDDDDD;
+    border-top: 1px solid #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.8em;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.5);
+    color: #FFFFFF;
+    transition: all 0.1s;
+    cursor: pointer;
+}
+
+form button:hover {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    transform: translateY(2px);
+}
+
 .container.border {
     border: 1px solid #AAAAAA;
 }
@@ -230,17 +336,18 @@ hr.invisible {
 }
 
 .row.odd {
-    background: #DADADA;
+    background: #EAEAEA;
 }
 
 .row.even {
-    background: #EAEAEA;
+    background: #FAFAFA;
 }
 
 .width-3 { width: 3%; }
 .width-5 { width: 5%; }
 .width-7 { width: 7%; }
 .width-10 { width: 10%; }
+.width-15 { width: 15%; }
 .width-20 { width: 20%; }
 .width-25 { width: 25%; }
 .width-30 { width: 30%; }

@@ -3,6 +3,7 @@
 namespace Glry\Form;
 
 use Faulancer\Form\AbstractFormHandler;
+use Faulancer\Service\AuthenticatorService;
 use Faulancer\Service\SessionManagerService;
 use Faulancer\Session\SessionManager;
 use Glry\Entity\UserEntity;
@@ -24,21 +25,14 @@ class UserLoginHandler extends AbstractFormHandler
         $login = $request->getParam('text/login');
         $pass  = $request->getParam('text/password');
 
-        $user = $this->getDb()
-            ->fetch(UserEntity::class)
-            ->where('login', '=', $login)
-            ->andWhere('password', '=', $pass)
-            ->one();
+        /** @var AuthenticatorService $authService */
+        $authService = $this->getServiceLocator()->get(AuthenticatorService::class);
 
-        if (empty($user->getData())) {
-            $this->redirect('/user/login');
-        }
+        $user           = new UserEntity();
+        $user->login    = $login;
+        $user->password = $pass;
 
-        /** @var SessionManager $sessionManager */
-        $sessionManager = $this->getServiceLocator()->get(SessionManagerService::class);
-        $sessionManager->set('user', $user->id);
-
-        $this->redirect('/');
+        $authService->loginUser($user);
 
         return true;
     }

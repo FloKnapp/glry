@@ -1,0 +1,68 @@
+<?php $this->parentTemplate('/admin/layout.phtml'); ?>
+
+<?php $this->block('content'); ?>
+
+<div class="content">
+
+    <h2 class="icon user">Nutzer anlegen</h2>
+
+    <hr class="invisible" />
+
+    <form action="/formrequest/userAdd" method="POST">
+
+        <div class="container width-100">
+            <div class="row">
+                <div class="cell width-15"><label for="gender">Anrede:</label></div>
+                <div class="cell">
+                    <select id="gender" name="text/gender">
+                        <option value="">Bitte wählen</option>
+                        <option value="frau">Frau</option>
+                        <option value="herr">Herr</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell"><label for="firstname">Vorname:</label></div>
+                <div class="cell"><input id="firstname" type="text" name="text/firstname" /></div>
+            </div>
+            <div class="row">
+                <div class="cell"><label for="lastname">Nachname:</label></div>
+                <div class="cell"><input id="lastname" type="text" name="text/lastname" /></div>
+            </div>
+            <div class="row">
+                <div class="cell"><label for="email">E-Mail:</label></div>
+                <div class="cell"><input id="email" type="text" name="email/email" /></div>
+            </div>
+
+        </div>
+
+        <hr />
+
+        <div class="container width-100">
+            <div class="row">
+                <div class="cell width-15"><label for="login">Login:</label></div>
+                <div class="cell"><input id="login" type="text" name="text/login" autocomplete="off" /></div>
+            </div>
+            <div class="row">
+                <div class="cell"><label for="password">Passwort:</label></div>
+                <div class="cell"><input id="password" type="password" name="text/password" autocomplete="off" /></div>
+            </div>
+            <div class="row">
+                <div class="cell"><label for="password_repeat">Passwort wiederholen:</label></div>
+                <div class="cell"><input id="password_repeat" type="password" name="text/password_repeat" autocomplete="off" /></div>
+            </div>
+        </div>
+
+        <input type="hidden" name="csrf" value="<?= $this->generateCsrfToken(); ?>" />
+
+        <hr />
+
+        <button>Absenden</button>
+
+    </form>
+
+</div>
+
+
+
+<?php $this->endBlock('content'); ?>
