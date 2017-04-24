@@ -8,7 +8,50 @@
 
     <hr class="invisible" />
 
+    <h4>Derzeit registrierte Nutzer</h4>
 
+    <div class="container width-100">
+
+        <div class="row fs-08">
+            <?php if ($this->user()->isAuthenticated(['administrator'])): ?>
+            <div class="cell width-5">Optionen</div>
+            <?php endif; ?>
+            <div class="cell width-10">Vorname</div>
+            <div class="cell width-10">Nachname</div>
+            <div class="cell width-10">E-Mail-Adresse</div>
+            <div class="cell width-10">Login</div>
+            <div class="cell width-10">Angelegt am</div>
+        </div>
+
+    <?php
+
+    $i = 0;
+
+    /** @var \Glry\Entity\UserEntity[] $users */
+    foreach ($users as $user): ?>
+
+        <div class="row<?= $i % 2 === 0 ? ' even' : ' odd'; ?>">
+            <?php if ($this->user()->isAuthenticated(['administrator'])): ?>
+            <div class="cell space-5">
+                <a href="/admin/user/edit/<?= $user->id; ?>/<?= $this->generateCsrfToken(); ?>">
+                    <div class="icon inline edit"></div>
+                </a>
+                <a href="/admin/user/delete/<?= $user->id; ?>/<?= $this->generateCsrfToken(); ?>">
+                    <div class="icon inline remove"></div>
+                </a>
+            </div>
+            <?php endif; ?>
+            <div class="cell space-5"><?= $user->firstname; ?></div>
+            <div class="cell space-5"><?= $user->lastname; ?></div>
+            <div class="cell space-5"><?= $user->email; ?></div>
+            <div class="cell space-5"><?= $user->login; ?></div>
+            <div class="cell space-5"><?= (new \DateTime($user->created))->format('d.m.Y, H:i'); ?> Uhr</div>
+        </div>
+
+        <?php $i++; ?>
+
+    <?php endforeach; ?>
+    </div>
 
 </div>
 

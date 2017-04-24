@@ -9,6 +9,7 @@
 namespace Glry\Controller;
 
 use Faulancer\Controller\Controller;
+use Glry\Entity\UserEntity;
 
 class AdminController extends Controller
 {
@@ -46,7 +47,9 @@ class AdminController extends Controller
 
         $this->addDefaultAssets();
 
-        return $this->render('/admin/site/user_management.phtml');
+        $users = $this->getDb()->fetch(UserEntity::class)->all();
+
+        return $this->render('/admin/site/user_management.phtml', ['users' => $users]);
     }
 
     private function addDefaultAssets()

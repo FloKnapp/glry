@@ -51,6 +51,12 @@ return [
         'action'     => 'userManagement',
         'method'     => 'GET',
         'title'      => 'Nutzer verwalten'
+    ],
+    'admin_user_edit' => [
+        'path'       => '/admin/user/edit/(\d+)/(\w{64})',
+        'controller' => \Glry\Controller\AdminController::class,
+        'action'     => 'userEdit',
+        'method'     => 'GET'
     ]
 
 ];
