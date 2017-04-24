@@ -59,9 +59,21 @@ return [
         'method'     => 'GET'
     ],
     'admin_user_edit' => [
-        'path'       => '/admin/user/edit/(\d+)/(\w{64})',
+        'path'       => '/admin/user/edit/(\d+)',
         'controller' => \Glry\Controller\AdminController::class,
         'action'     => 'userEdit',
+        'method'     => 'GET'
+    ],
+    'admin_user_permission' => [
+        'path'       => '/admin/user/permission/(\d+)',
+        'controller' => \Glry\Controller\AdminController::class,
+        'action'     => 'userPermission',
+        'method'     => 'GET'
+    ],
+    'admin_user_delete' => [
+        'path'       => '/admin/user/delete/(\d+)',
+        'controller' => \Glry\Controller\AdminController::class,
+        'action'     => 'userDelete',
         'method'     => 'GET'
     ]
 

@@ -38,14 +38,14 @@
             <?php if ($this->user()->isAuthenticated(['administrator'])): ?>
             <div class="cell space-5">
 
-                <a href="/admin/user/edit/<?= $user->id; ?>/<?= $this->generateCsrfToken(); ?>">
+                <a href="<?= $this->route('admin_user_edit', [$user->id]); ?>">
                     <div class="icon inline edit"></div>
                 </a>
-                <a href="/admin/user/permission/<?= $user->id; ?>/<?= $this->generateCsrfToken(); ?>">
+                <a href="<?= $this->route('admin_user_permission', [$user->id]); ?>">
                     <div class="icon inline permission"></div>
                 </a>
 
-                <a href="/admin/user/delete/<?= $user->id; ?>/<?= $this->generateCsrfToken(); ?>">
+                <a href="<?= $this->route('admin_user_delete', [$user->id]); ?>">
                     <div class="icon inline remove"></div>
                 </a>
             </div>

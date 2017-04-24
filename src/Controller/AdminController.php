@@ -11,6 +11,8 @@ namespace Glry\Controller;
 use Faulancer\Controller\Controller;
 use Glry\Entity\CategoryEntity;
 use Glry\Entity\UserEntity;
+use Glry\Form\UserAddForm;
+use Glry\Form\UserEditForm;
 
 class AdminController extends Controller
 {
@@ -77,6 +79,51 @@ class AdminController extends Controller
         $this->addDefaultAssets();
 
         return $this->render('/admin/user/add.phtml');
+    }
+
+    /**
+     * @param integer $userId
+     * @return \Faulancer\Http\Response
+     */
+    public function userEditAction($userId)
+    {
+        $this->requireAuth(['administrator', 'moderator']);
+
+        $this->addDefaultAssets();
+
+        $user = $this->getDb()->fetch(UserEntity::class, $userId);
+
+        return $this->render('/admin/user/edit.phtml', ['user' => $user]);
+    }
+
+    /**
+     * @param integer $userId
+     * @return \Faulancer\Http\Response
+     */
+    public function userPermissionAction($userId)
+    {
+        $this->requireAuth(['administrator', 'moderator']);
+
+        $this->addDefaultAssets();
+
+        $user = $this->getDb()->fetch(UserEntity::class, $userId);
+
+        return $this->render('/admin/user/edit.phtml', ['user' => $user]);
+    }
+
+    /**
+     * @param integer $userId
+     * @return \Faulancer\Http\Response
+     */
+    public function userDeleteAction($userId)
+    {
+        $this->requireAuth(['administrator', 'moderator']);
+
+        $this->addDefaultAssets();
+
+        $user = $this->getDb()->fetch(UserEntity::class, $userId);
+
+        return $this->render('/admin/user/edit.phtml', ['user' => $user]);
     }
 
     private function addDefaultAssets()

@@ -18,4 +18,5 @@ return [
         'registerUrl' => '/user/register',
         'authEntity'  => \Glry\Entity\UserEntity::class
     ],
+    'translation' => require_once __DIR__ . '/translation.conf.php'
 ];

@@ -1,6 +1,6 @@
 <?php
 
-namespace Glry\Form;
+namespace Glry\Form\Handler;
 
 use Faulancer\Form\AbstractFormHandler;
 use Faulancer\Service\AuthenticatorService;

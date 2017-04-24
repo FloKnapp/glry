@@ -23,15 +23,15 @@
             </div>
             <div class="row">
                 <div class="cell"><label for="firstname">Vorname:</label></div>
-                <div class="cell"><input id="firstname" type="text" name="text/firstname" /></div>
+                <div class="cell"><input id="firstname" type="text" name="text/firstname" value="<?= $this->formData('text/firstname'); ?>" /></div>
             </div>
             <div class="row">
                 <div class="cell"><label for="lastname">Nachname:</label></div>
-                <div class="cell"><input id="lastname" type="text" name="text/lastname" /></div>
+                <div class="cell"><input id="lastname" type="text" name="text/lastname" value="<?= $this->formData('text/lastname'); ?>" /></div>
             </div>
             <div class="row">
                 <div class="cell"><label for="email">E-Mail:</label></div>
-                <div class="cell"><input id="email" type="text" name="email/email" /></div>
+                <div class="cell"><input id="email" type="text" name="email/email" value="<?= $this->formData('email/email'); ?>" /></div>
             </div>
 
         </div>
@@ -41,11 +41,11 @@
         <div class="container width-100">
             <div class="row">
                 <div class="cell width-15"><label for="login">Login:</label></div>
-                <div class="cell"><input id="login" type="text" name="text/login" autocomplete="off" /></div>
+                <div class="cell"><input id="login" type="text" name="text/login" value="<?= $this->formData('text/login'); ?>" autocomplete="off" /></div>
             </div>
             <div class="row">
                 <div class="cell"><label for="password">Passwort:</label></div>
-                <div class="cell"><input id="password" type="password" name="text/password" autocomplete="off" /></div>
+                <div class="cell"><input id="password" type="password" name="text/password" value="<?= $this->formData('text/password'); ?>" autocomplete="off" /></div>
             </div>
             <div class="row">
                 <div class="cell"><label for="password_repeat">Passwort wiederholen:</label></div>
