@@ -6,6 +6,7 @@
 namespace Glry\Form;
 
 use Faulancer\Form\AbstractFormBuilder;
+use Faulancer\Form\Validator\Base\Text;
 
 /**
  * Class UserAddForm
@@ -23,6 +24,21 @@ class UserAddForm extends AbstractFormBuilder
         $this->setFormAttributes([
             'action' => '/admin/user/add',
             'method' => 'POST'
+        ]);
+
+        $this->add([
+            'label'      => 'Anrede',
+            'attributes' => [
+                'name' => 'gender',
+                'type' => 'select',
+            ],
+            'options'    => [
+                null   => 'Bitte wählen',
+                'frau' => 'Frau',
+                'herr' => 'Herr'
+            ],
+            'selected'   => 'herr',
+            'validator'  => Text::class
         ]);
 
         // Build form

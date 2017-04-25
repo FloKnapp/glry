@@ -8,6 +8,9 @@ namespace Glry\Controller;
 
 use Faulancer\Controller\AbstractController;
 use Faulancer\Http\Response;
+use Faulancer\Service\AuthenticatorService;
+use Glry\Entity\UserEntity;
+use Glry\Form\UserLoginForm;
 
 /**
  * Class UserController
@@ -21,7 +24,18 @@ class UserController extends AbstractController
     public function loginAction()
     {
         $this->addDefaultAssets();
-        return $this->render('/user/login.phtml');
+
+        $form = new UserLoginForm();
+
+        if ($this->getRequest()->isPost() && $form->isValid()) {
+
+            /** @var AuthenticatorService $authService */
+            $authService = $this->getServiceLocator()->get(AuthenticatorService::class);
+            $authService->loginUser(new UserEntity($form->getData()));
+
+        }
+
+        return $this->render('/user/login.phtml', ['form' => $form]);
     }
 
     /**

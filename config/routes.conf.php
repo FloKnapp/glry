@@ -14,13 +14,13 @@ return [
         'path'       => '/user/login',
         'controller' => \Glry\Controller\UserController::class,
         'action'     => 'login',
-        'method'     => ['GET'],
+        'method'     => ['GET', 'POST'],
     ],
     'user_logout' => [
         'path'       => '/user/logout',
         'controller' => \Glry\Controller\UserController::class,
-        'action'     => ['GET'],
-        'method'     => 'GET'
+        'action'     => 'logout',
+        'method'     => ['GET']
     ],
 
     // Backend

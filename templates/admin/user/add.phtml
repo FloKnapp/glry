@@ -14,14 +14,21 @@
     <div class="container width-100">
 
         <div class="row">
-            <div class="cell"><?= $form->getField('firstname')->getInputLabel(); ?></div>
+            <div class="cell"><?= $form->getField('gender')->getLabel(); ?></div>
+            <div class="cell">
+                <?= $form->getField('gender'); ?>
+                <?= $form->getField('gender')->getErrorMessage(); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"><?= $form->getField('firstname')->getLabel(); ?></div>
             <div class="cell">
                 <?= $form->getField('firstname'); ?>
                 <?= $form->getField('firstname')->getErrorMessage(); ?>
             </div>
         </div>
         <div class="row">
-            <div class="cell"><?= $form->getField('lastname')->getInputLabel(); ?></div>
+            <div class="cell"><?= $form->getField('lastname')->getLabel(); ?></div>
             <div class="cell">
                 <?= $form->getField('lastname'); ?>
                 <?= $form->getField('lastname')->getErrorMessage(); ?>

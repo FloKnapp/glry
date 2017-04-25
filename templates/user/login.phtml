@@ -2,14 +2,15 @@
 
 <?php $this->block('content'); ?>
 
-    <form action="/formrequest/userLogin" method="POST">
+    <?php /** @var \Faulancer\Form\AbstractFormBuilder $form */ ?>
 
-        <input type="text" name="text/login">
+    <?= $form->getFormOpen(); ?>
 
-        <input type="password" name="text/password">
+        <?= $form->getField('login'); ?>
+        <?= $form->getField('password'); ?>
 
-        <button>Login</button>
+        <?= $form->getField('submit'); ?>
 
-    </form>
+    <?= $form->getFormClose(); ?>
 
 <?php $this->endBlock('content'); ?>
