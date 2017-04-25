@@ -78,7 +78,21 @@ class AdminController extends Controller
 
         $this->addDefaultAssets();
 
-        return $this->render('/admin/user/add.phtml');
+        $form = new UserAddForm();
+
+        if ($this->request->isPost() && $form->isValid()) {
+
+            $data = $form->getData();
+
+            $user = new UserEntity();
+            $user->firstname = $data['firstname'];
+            $user->lastname = $data['lastname'];
+            $user->save($this->getDb()->getManager());
+
+            $this->redirect('/admin/users');
+        }
+
+        return $this->render('/admin/user/add.phtml', ['form' => $form]);
     }
 
     /**

@@ -8,6 +8,33 @@
 
     <hr class="invisible" />
 
+    <?php /** @var \Faulancer\Form\AbstractFormBuilder $form  */ ?>
+    <?= $form->getFormOpen(); ?>
+
+    <div class="container width-100">
+
+        <div class="row">
+            <div class="cell"><?= $form->getField('firstname')->getLabel(); ?></div>
+            <div class="cell">
+                <?= $form->getField('firstname'); ?>
+                <?= $form->getField('firstname')->getErrorMessage(); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"><?= $form->getField('lastname')->getLabel(); ?></div>
+            <div class="cell">
+                <?= $form->getField('lastname'); ?>
+                <?= $form->getField('lastname')->getErrorMessage(); ?>
+            </div>
+        </div>
+
+    </div>
+
+    <?= $form->getField('submit'); ?>
+
+    <?= $form->getFormClose(); ?>
+
+    <!--
     <form action="/formrequest/userAdd" method="POST">
 
         <div class="container width-100">
@@ -59,7 +86,9 @@
 
         <button>Absenden</button>
 
-    </form>
+
+
+    </form>-->
 
 </div>
 
