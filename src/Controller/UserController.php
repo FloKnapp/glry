@@ -1,27 +1,32 @@
 <?php
 /**
- * Created by PhpStorm.
- * UserEntity: flo
- * Date: 23.04.17
- * Time: 21:49
+ * UserController | UserController.php
+ * @package Glry\Controller
+ * @author Florian Knapp <office@florianknapp.de>
  */
-
 namespace Glry\Controller;
 
-use Faulancer\Controller\Controller;
+use Faulancer\Controller\AbstractController;
+use Faulancer\Http\Response;
 
-class UserController extends Controller
+/**
+ * Class UserController
+ */
+class UserController extends AbstractController
 {
 
+    /**
+     * @return Response
+     */
     public function loginAction()
     {
-
         $this->addDefaultAssets();
-
         return $this->render('/user/login.phtml');
-
     }
 
+    /**
+     * @return void
+     */
     public function logoutAction()
     {
         $this->addDefaultAssets();
@@ -31,6 +36,9 @@ class UserController extends Controller
         $this->redirect('/');
     }
 
+    /**
+     * @return void
+     */
     private function addDefaultAssets()
     {
         $this->getView()->addStylesheet('/css/main.css');

@@ -1,19 +1,24 @@
 <?php
-
+/**
+ * SiteController | SiteController.php
+ * @package Faulancer\Controller
+ * @author Florian Knapp <office@florianknapp.de>
+ */
 namespace Glry\Controller;
 
-use Faulancer\Controller\Controller;
+use Faulancer\Controller\AbstractController;
 use Faulancer\Service\DbService;
 use Glry\Entity\CategoryEntity;
+use Faulancer\Http\Response;
 
 /**
  * Class SiteController
  */
-class SiteController extends Controller
+class SiteController extends AbstractController
 {
 
     /**
-     * @return \Faulancer\Http\Response
+     * @return Response
      */
     public function indexAction()
     {
@@ -28,6 +33,9 @@ class SiteController extends Controller
         return $this->render('/site/index.phtml', ['categories' => $data]);
     }
 
+    /**
+     * @return void
+     */
     private function addDefaultAssets()
     {
         $this->getView()->addStylesheet('/css/main.css');

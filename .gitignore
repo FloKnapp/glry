@@ -1,5 +1,5 @@
 /.idea/
 /vendor/
 
-/config/nginx.glry.dev.conf
+/config/nginx.development.conf
 /composer.lock

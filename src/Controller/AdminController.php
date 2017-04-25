@@ -1,41 +1,40 @@
 <?php
 /**
- * Created by PhpStorm.
- * UserEntity: flo
- * Date: 23.04.17
- * Time: 20:14
+ * AdminController | AdminController.php
+ * @package Faulancer\Controller
+ * @author Florian Knapp <office@florianknapp.de>
  */
-
 namespace Glry\Controller;
 
-use Faulancer\Controller\Controller;
+use Faulancer\Controller\AbstractController;
 use Glry\Entity\CategoryEntity;
 use Glry\Entity\UserEntity;
 use Glry\Form\UserAddForm;
-use Glry\Form\UserEditForm;
+use Faulancer\Http\Response;
 
-class AdminController extends Controller
+/**
+ * Class AdminController
+ */
+class AdminController extends AbstractController
 {
 
     /**
-     * @return \Faulancer\Http\Response
+     * @return Response
      */
     public function indexAction()
     {
         $this->requireAuth(['administrator', 'moderator']);
-
         $this->addDefaultAssets();
 
         return $this->render('/admin/site/index.phtml');
     }
 
     /**
-     * @return \Faulancer\Http\Response
+     * @return Response
      */
     public function categoryAction()
     {
         $this->requireAuth(['administrator', 'moderator']);
-
         $this->addDefaultAssets();
 
         $categories = $this->getDb()->fetch(CategoryEntity::class)->all();
@@ -44,24 +43,22 @@ class AdminController extends Controller
     }
 
     /**
-     * @return \Faulancer\Http\Response
+     * @return Response
      */
     public function layoutSettingsAction()
     {
         $this->requireAuth(['administrator', 'moderator']);
-
         $this->addDefaultAssets();
 
         return $this->render('/admin/site/layout_settings.phtml');
     }
 
     /**
-     * @return \Faulancer\Http\Response
+     * @return Response
      */
     public function userManagementAction()
     {
         $this->requireAuth(['administrator', 'moderator']);
-
         $this->addDefaultAssets();
 
         $users = $this->getDb()->fetch(UserEntity::class)->all();
@@ -70,12 +67,11 @@ class AdminController extends Controller
     }
 
     /**
-     * @return \Faulancer\Http\Response
+     * @return Response
      */
     public function userAddAction()
     {
         $this->requireAuth(['administrator', 'moderator']);
-
         $this->addDefaultAssets();
 
         $form = new UserAddForm();
@@ -83,13 +79,11 @@ class AdminController extends Controller
         if ($this->request->isPost() && $form->isValid()) {
 
             $data = $form->getData();
-
-            $user = new UserEntity();
-            $user->firstname = $data['firstname'];
-            $user->lastname = $data['lastname'];
+            $user = new UserEntity($data);
             $user->save($this->getDb()->getManager());
 
             $this->redirect('/admin/users');
+
         }
 
         return $this->render('/admin/user/add.phtml', ['form' => $form]);
@@ -97,12 +91,11 @@ class AdminController extends Controller
 
     /**
      * @param integer $userId
-     * @return \Faulancer\Http\Response
+     * @return Response
      */
     public function userEditAction($userId)
     {
         $this->requireAuth(['administrator', 'moderator']);
-
         $this->addDefaultAssets();
 
         $user = $this->getDb()->fetch(UserEntity::class, $userId);
@@ -112,12 +105,11 @@ class AdminController extends Controller
 
     /**
      * @param integer $userId
-     * @return \Faulancer\Http\Response
+     * @return Response
      */
     public function userPermissionAction($userId)
     {
         $this->requireAuth(['administrator', 'moderator']);
-
         $this->addDefaultAssets();
 
         $user = $this->getDb()->fetch(UserEntity::class, $userId);
@@ -127,12 +119,11 @@ class AdminController extends Controller
 
     /**
      * @param integer $userId
-     * @return \Faulancer\Http\Response
+     * @return Response
      */
     public function userDeleteAction($userId)
     {
         $this->requireAuth(['administrator', 'moderator']);
-
         $this->addDefaultAssets();
 
         $user = $this->getDb()->fetch(UserEntity::class, $userId);
@@ -140,6 +131,9 @@ class AdminController extends Controller
         return $this->render('/admin/user/edit.phtml', ['user' => $user]);
     }
 
+    /**
+     * @return void
+     */
     private function addDefaultAssets()
     {
         $this->getView()->addStylesheet('https://fonts.googleapis.com/css?family=Noto+Sans');

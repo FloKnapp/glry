@@ -13,6 +13,9 @@ use Faulancer\Form\AbstractFormBuilder;
 class UserAddForm extends AbstractFormBuilder
 {
 
+    /**
+     * UserAddForm constructor.
+     */
     public function __construct()
     {
 
