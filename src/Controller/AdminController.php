@@ -80,7 +80,15 @@ class AdminController extends AbstractController
 
             $data = $form->getData();
             $user = new UserEntity($data);
-            $user->save($this->getDb()->getManager());
+
+            try {
+                $user->save($this->getDb()->getManager());
+            } catch (\Exception $e) {
+
+            }
+
+
+            $this->getSessionManager()->setFlashMessage('user.add.success', 'Nutzer wurde erfolgreich eingetragen!');
 
             $this->redirect('/admin/users');
 

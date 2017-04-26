@@ -1,6 +1,6 @@
 <?php
 /**
- * Class UserEntity | UserEntity.php
+ * Class UserEntity | UserEntity.phpty.php
  * @package Glry\Entity
  */
 namespace Glry\Entity;
@@ -16,4 +16,6 @@ use Faulancer\ORM\User\Entity;
  *
  * @author Florian Knapp <office@florianknapp.de>
  */
-class UserEntity extends Entity {}
+class UserEntity extends Entity {
+
+}

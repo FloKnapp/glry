@@ -1,11 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- * UserEntity: flo
- * Date: 23.04.17
- * Time: 20:40
+ * Class ImageEntity | ImageEntityEntity.php
+ * @package Glry\Entity
+ * @author Florian Knapp <office@florianknapp.de>
  */
-
 namespace Glry\Entity;
 
 use Faulancer\ORM\Entity;

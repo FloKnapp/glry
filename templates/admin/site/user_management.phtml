@@ -8,6 +8,16 @@
 
     <hr class="invisible" />
 
+    <?php
+    $message = $this->flashMessage()->get('user.add.success');
+
+    if (!empty($message)):
+    ?>
+        <div class="notice success"><?= $message ?></div>
+    <?php
+    endif;
+    ?>
+
     <div class="admin-section-title">
         <div class="left"><h4>Derzeit registrierte Nutzer</h4></div>
         <div class="right"><a class="btn" href="<?= $this->route('admin_user_add'); ?>"><div class="icon add">Nutzer hinzufügen</div></a></div>
