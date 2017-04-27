@@ -80,21 +80,14 @@ class AdminController extends AbstractController
 
             $data = $form->getData();
             $user = new UserEntity($data);
-
-            try {
-                $user->save($this->getDb()->getManager());
-            } catch (\Exception $e) {
-
-            }
-
+            $user->save();
 
             $this->getSessionManager()->setFlashMessage('user.add.success', 'Nutzer wurde erfolgreich eingetragen!');
-
             $this->redirect('/admin/users');
 
         }
 
-        return $this->render('/admin/user/add.phtml', ['form' => $form]);
+        return $this->render('/admin/user/manage.phtml', ['form' => $form]);
     }
 
     /**
@@ -106,9 +99,9 @@ class AdminController extends AbstractController
         $this->requireAuth(['administrator', 'moderator']);
         $this->addDefaultAssets();
 
-        $user = $this->getDb()->fetch(UserEntity::class, $userId);
+        $form = new UserAddForm($this->getDb()->fetch(UserEntity::class, $userId));
 
-        return $this->render('/admin/user/edit.phtml', ['user' => $user]);
+        return $this->render('/admin/user/manage.phtml', ['form' => $form]);
     }
 
     /**

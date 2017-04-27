@@ -17,7 +17,7 @@
         $user = $this->user()->get();
         ?>
 
-        Eingeloggt als <span class="login-name"><?= $user->login; ?></span> | <a href="/user/logout">Logout</a>
+        Eingeloggt als <span class="login-name"><?= $user->login; ?></span> | <a href="<?= $this->route('user_logout') ?>">Logout</a>
 
     </div>
 

@@ -280,7 +280,9 @@ form label {
     font-size: 0.8em;
 }
 
-form input[type="text"] {
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
     padding: 3px 0;
     min-width: 300px;
     font-size: 0.8em;

@@ -1,0 +1,89 @@
+<?php $this->parentTemplate('/admin/layout.phtml'); ?>
+
+<?php $this->block('content'); ?>
+
+<div class="content">
+
+    <h2 class="icon user">Nutzer anlegen</h2>
+
+    <hr class="invisible" />
+
+    <?php /** @var \Faulancer\Form\AbstractFormBuilder $form  */ ?>
+    <?= $form->getFormOpen(); ?>
+
+    <div class="container width-100">
+
+        <div class="row">
+            <div class="cell width-10"><?= $form->getField('gender')->getLabel(); ?></div>
+            <div class="cell">
+
+                <?php
+                /** @var \Faulancer\Form\Type\Base\Radio $gender */
+                $gender = $form->getField('gender');
+                ?>
+
+                <?= $gender->getOption('w'); ?> <?= $gender->getOptionTitle('w'); ?>
+                <?= $gender->getOption('m'); ?> <?= $gender->getOptionTitle('m'); ?>
+                <?= $gender->getErrorMessages(); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"><?= $form->getField('firstname')->getLabel(); ?></div>
+            <div class="cell">
+                <?= $form->getField('firstname'); ?>
+                <?= $form->getField('firstname')->getErrorMessages(); ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"><?= $form->getField('lastname')->getLabel(); ?></div>
+            <div class="cell">
+                <?= $form->getField('lastname'); ?>
+                <?= $form->getField('lastname')->getErrorMessages(); ?>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell"><?= $form->getField('email')->getLabel(); ?></div>
+            <div class="cell">
+                <?= $form->getField('email'); ?>
+                <?= $form->getField('email')->getErrorMessages(); ?>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell"><?= $form->getField('login')->getLabel(); ?></div>
+            <div class="cell">
+                <?= $form->getField('login'); ?>
+                <?= $form->getField('login')->getErrorMessages(); ?>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell"><?= $form->getField('password')->getLabel(); ?></div>
+            <div class="cell">
+                <?= $form->getField('password'); ?>
+                <?= $form->getField('password')->getErrorMessages(); ?>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell"><?= $form->getField('password_repeat')->getLabel(); ?></div>
+            <div class="cell">
+                <?= $form->getField('password_repeat'); ?>
+                <?= $form->getField('password_repeat')->getErrorMessages(); ?>
+            </div>
+        </div>
+
+    </div>
+
+    <?= $form->getField('id'); ?>
+
+    <?= $form->getField('submit'); ?>
+
+    <?= $form->getFormClose(); ?>
+
+</div>
+
+
+
+<?php $this->endBlock('content'); ?>
