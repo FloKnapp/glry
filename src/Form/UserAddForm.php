@@ -31,15 +31,20 @@ class UserAddForm extends AbstractFormBuilder
             'label'      => 'Anrede',
             'attributes' => [
                 'name' => 'gender',
-                'type' => 'select',
+                'type' => 'radio',
             ],
             'options'    => [
-                ''     => 'Bitte wählen',
-                'frau' => 'Frau',
-                'herr' => 'Herr'
+                'w' => [
+                    'title' => 'Frau',
+                    'value' => 'frau'
+                ],
+                'm' => [
+                    'title' => 'Herr',
+                    'value' => 'herr'
+                ]
             ],
-            'selected'   => 'herr',
-            'validator'  => Text::class
+            'default'   => 'herr',
+            'validator' => Text::class
         ]);
 
         $this->add([
@@ -64,30 +69,6 @@ class UserAddForm extends AbstractFormBuilder
                 'name' => 'submit',
                 'type' => 'submit'
             ]
-        ]);
-
-        $this->add([
-            'label' => 'Hallo',
-            'attributes' => [
-                'name' => 'isAdmin',
-                'type' => 'checkbox',
-                'value' => 'yes'
-            ],
-            'default' => 'no',
-            'checked' => true
-        ]);
-
-        $this->add([
-            'label' => 'Hallo Radio',
-            'attributes' => [
-                'name' => 'radioButton',
-                'type' => 'radio'
-            ],
-            'options' => [
-                'option1' => 'Ja',
-                'option2' => 'Nein'
-            ],
-            'selected' => 'option2'
         ]);
 
     }

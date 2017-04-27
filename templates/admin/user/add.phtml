@@ -16,8 +16,15 @@
         <div class="row">
             <div class="cell"><?= $form->getField('gender')->getLabel(); ?></div>
             <div class="cell">
-                <?= $form->getField('gender'); ?>
-                <?= $form->getField('gender')->getErrorMessage(); ?>
+
+                <?php
+                /** @var \Faulancer\Form\Type\Base\Radio $gender */
+                $gender = $form->getField('gender');
+                ?>
+
+                <?= $gender->getOption('w'); ?> <?= $gender->getOptionTitle('w'); ?>
+                <?= $gender->getOption('m'); ?> <?= $gender->getOptionTitle('m'); ?>
+                <?= $gender->getErrorMessage(); ?>
             </div>
         </div>
         <div class="row">
@@ -32,22 +39,6 @@
             <div class="cell">
                 <?= $form->getField('lastname'); ?>
                 <?= $form->getField('lastname')->getErrorMessage(); ?>
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell"><?= $form->getField('isAdmin')->getLabel(); ?></div>
-            <div class="cell">
-                <?= $form->getField('isAdmin'); ?>
-                <?= $form->getField('isAdmin')->getErrorMessage(); ?>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="cell"><?= $form->getField('radioButton')->getLabel(); ?></div>
-            <div class="cell">
-                <?= $form->getField('radioButton')->getOption('option1'); ?>
-                <?= $form->getField('radioButton')->getOption('option2'); ?>
-                <?= $form->getField('radioButton')->getErrorMessage(); ?>
             </div>
         </div>
 
