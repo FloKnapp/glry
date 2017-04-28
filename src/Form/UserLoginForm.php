@@ -17,7 +17,7 @@ class UserLoginForm extends AbstractFormBuilder
     /**
      * UserLoginForm constructor.
      */
-    public function __construct ()
+    public function create ()
     {
         $this->setFormAttributes([
             'action' => '/user/login',

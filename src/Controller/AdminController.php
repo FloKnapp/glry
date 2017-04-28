@@ -11,6 +11,7 @@ use Glry\Entity\CategoryEntity;
 use Glry\Entity\UserEntity;
 use Glry\Form\UserAddForm;
 use Faulancer\Http\Response;
+use Glry\Form\UserDeleteForm;
 
 /**
  * Class AdminController
@@ -87,7 +88,10 @@ class AdminController extends AbstractController
 
         }
 
-        return $this->render('/admin/user/manage.phtml', ['form' => $form]);
+        return $this->render('/admin/user/manage.phtml', [
+            'form' => $form,
+            'mode' => 'add'
+        ]);
     }
 
     /**
@@ -101,7 +105,10 @@ class AdminController extends AbstractController
 
         $form = new UserAddForm($this->getDb()->fetch(UserEntity::class, $userId));
 
-        return $this->render('/admin/user/manage.phtml', ['form' => $form]);
+        return $this->render('/admin/user/manage.phtml', [
+            'form' => $form,
+            'mode' => 'edit'
+        ]);
     }
 
     /**
@@ -113,9 +120,12 @@ class AdminController extends AbstractController
         $this->requireAuth(['administrator', 'moderator']);
         $this->addDefaultAssets();
 
-        $user = $this->getDb()->fetch(UserEntity::class, $userId);
+        $form = new UserAddForm($this->getDb()->fetch(UserEntity::class, $userId));
 
-        return $this->render('/admin/user/edit.phtml', ['user' => $user]);
+        return $this->render('/admin/user/manage.phtml', [
+            'form' => $form,
+            'mode' => 'permission'
+        ]);
     }
 
     /**
@@ -127,9 +137,17 @@ class AdminController extends AbstractController
         $this->requireAuth(['administrator', 'moderator']);
         $this->addDefaultAssets();
 
-        $user = $this->getDb()->fetch(UserEntity::class, $userId);
+        if ($this->getRequest()->isPost() && $this->getRequest()->getParam('confirm') === 'confirmed') {
 
-        return $this->render('/admin/user/edit.phtml', ['user' => $user]);
+            $user = $this->getDb()->fetch(UserEntity::class, $userId);
+            $this->getDb()->getManager()->delete($user);
+            $this->redirect($this->route('admin_user_management'));
+
+        }
+
+        $form = new UserDeleteForm($this->getDb()->fetch(UserEntity::class, $userId));
+
+        return $this->render('/admin/user/delete.phtml', ['form' => $form]);
     }
 
     /**

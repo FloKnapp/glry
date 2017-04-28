@@ -1,0 +1,35 @@
+<?php $this->parentTemplate('/admin/layout.phtml'); ?>
+
+<?php $this->block('content'); ?>
+
+<div class="content">
+
+    <h2>Bitte bestätigen</h2>
+
+    <?php /** @var \Glry\Form\UserDeleteForm $form */ ?>
+
+    <?php
+
+    $form->setFormAttributes([
+        'action' => '/admin/user/delete/' . $form->getField('id')->getValue(),
+        'method' => 'POST'
+    ]);
+
+    echo $form->getFormOpen();
+
+    ?>
+
+    <?= $form->getField('id'); ?>
+
+    <?= $form->getField('confirm'); ?>
+
+    <?= $form->getField('submit'); ?>
+
+    <?= $form->getFormClose(); ?>
+
+</div>
+
+
+
+
+<?php $this->endBlock('content'); ?>

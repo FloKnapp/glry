@@ -63,6 +63,7 @@
             <div class="cell">
                 <?= $form->getField('password'); ?>
                 <?= $form->getField('password')->getErrorMessages(); ?>
+                <?php $mode === 'edit' ? $form->getField('password')->removeValidators() : null; ?>
             </div>
         </div>
 
@@ -71,6 +72,7 @@
             <div class="cell">
                 <?= $form->getField('password_repeat'); ?>
                 <?= $form->getField('password_repeat')->getErrorMessages(); ?>
+                <?php $mode === 'edit' ? $form->getField('password_repeat')->removeValidators() : null; ?>
             </div>
         </div>
 

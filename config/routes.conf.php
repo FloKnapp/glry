@@ -74,7 +74,7 @@ return [
         'path'       => '/admin/user/delete/(\d+)',
         'controller' => \Glry\Controller\AdminController::class,
         'action'     => 'userDelete',
-        'method'     => ['GET']
+        'method'     => ['GET', 'POST']
     ]
 
 ];
