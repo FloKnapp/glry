@@ -22,8 +22,8 @@
                 $gender = $form->getField('gender');
                 ?>
 
-                <?= $gender->getOption('w'); ?> <?= $gender->getOptionTitle('w'); ?>
-                <?= $gender->getOption('m'); ?> <?= $gender->getOptionTitle('m'); ?>
+                <?= $gender->getOption('w'); ?> <?= $gender->getOptionLabel('w'); ?>
+                <?= $gender->getOption('m'); ?> <?= $gender->getOptionLabel('m'); ?>
                 <?= $gender->getErrorMessages(); ?>
             </div>
         </div>
@@ -57,13 +57,12 @@
                 <?= $form->getField('login')->getErrorMessages(); ?>
             </div>
         </div>
-
+        <?php if ($mode === 'add'): ?>
         <div class="row">
             <div class="cell"><?= $form->getField('password')->getLabel(); ?></div>
             <div class="cell">
                 <?= $form->getField('password'); ?>
                 <?= $form->getField('password')->getErrorMessages(); ?>
-                <?php $mode === 'edit' ? $form->getField('password')->removeValidators() : null; ?>
             </div>
         </div>
 
@@ -72,9 +71,9 @@
             <div class="cell">
                 <?= $form->getField('password_repeat'); ?>
                 <?= $form->getField('password_repeat')->getErrorMessages(); ?>
-                <?php $mode === 'edit' ? $form->getField('password_repeat')->removeValidators() : null; ?>
             </div>
         </div>
+        <?php endif; ?>
 
     </div>
 

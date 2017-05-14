@@ -37,11 +37,11 @@ class UserAddForm extends AbstractFormBuilder
             ],
             'options'    => [
                 'w' => [
-                    'title' => 'Frau',
+                    'label' => 'Frau',
                     'value' => 'frau'
                 ],
                 'm' => [
-                    'title' => 'Herr',
+                    'label' => 'Herr',
                     'value' => 'herr'
                 ]
             ],
