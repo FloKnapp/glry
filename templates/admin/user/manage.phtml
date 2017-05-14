@@ -4,12 +4,17 @@
 
 <div class="content">
 
-    <h2 class="icon user">Nutzer anlegen</h2>
+    <h2 class="icon user"><?= $mode === 'add' ? 'Nutzer anlegen' : 'Nutzer editieren' ?></h2>
 
     <hr class="invisible" />
 
     <?php /** @var \Faulancer\Form\AbstractFormBuilder $form  */ ?>
     <?= $form->getFormOpen(); ?>
+
+    <?php
+    $form->setFormErrorContainer('<div class="error">', '</div>');
+    $form->setFormErrorItemContainer('<div class="error">', '</div>');
+    ?>
 
     <div class="container width-100">
 

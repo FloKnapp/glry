@@ -7,7 +7,6 @@ namespace Glry\Form;
 
 use Faulancer\Form\AbstractFormBuilder;
 use Faulancer\Form\Validator\Base\Confirm;
-use Faulancer\Form\Validator\Base\Text;
 use Faulancer\Form\Validator\Base\NotEmpty;
 
 /**
@@ -27,6 +26,9 @@ class UserAddForm extends AbstractFormBuilder
             'action' => '/admin/user/add',
             'method' => 'POST'
         ]);
+
+        $this->setFormErrorItemContainer('<div class="error">', '</div>');
+        $this->setFormErrorContainer('<div class="error">', '</div>');
 
         // Build form
         $this->add([
